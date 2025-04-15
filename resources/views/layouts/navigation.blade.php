@@ -13,8 +13,31 @@
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
+                        {{ __('Início') }}
                     </x-nav-link>
+
+                    <x-nav-link :href="route('quartos.index')" :active="request()->routeIs('quartos.*')">
+                        {{ __('Quartos') }}
+                    </x-nav-link>
+
+                    <x-nav-link :href="route('servicos.index')" :active="request()->routeIs('servicos.*')">
+                        {{ __('Serviços') }}
+                    </x-nav-link>
+
+                    <x-nav-link :href="route('clientes.index')" :active="request()->routeIs('clientes.*')">
+                        {{ __('Clientes') }}
+                    </x-nav-link>
+
+                    <x-nav-link :href="route('funcionarios.index')" :active="request()->routeIs('funcionarios.*')">
+                        {{ __('Funcionários') }}
+                    </x-nav-link>
+
+                    <x-nav-link :href="route('ferramentas-manutencao.index')" :active="request()->routeIs('ferramentas-manutencao.*')">
+                        {{ __('Ferramentas') }}
+                    </x-nav-link>
+
+
+
                 </div>
             </div>
 
