@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\QuartoController;
 use App\Http\Controllers\FuncionarioController;
 use App\Http\Controllers\ServicoController;
-use App\Http\Controllers\FerramentaController;
+use App\Http\Controllers\FerramentaManutencaoController;
 use App\Http\Controllers\ClienteController;
 
 Route::get('/', function () {
@@ -23,7 +23,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('quartos', QuartoController::class);
     Route::resource('funcionarios', FuncionarioController::class);
     Route::resource('servicos', ServicoController::class);
-    Route::resource('ferramentas', FerramentaController::class);
+    Route::resource('ferramentas-manutencao', FerramentaManutencaoController::class);
     Route::resource('clientes', ClienteController::class);
 });
 
