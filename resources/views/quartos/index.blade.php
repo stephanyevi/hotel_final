@@ -7,11 +7,11 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <a href="{{ route('quartos.create') }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                Novo Quarto
-            </a>
-
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg mt-4">
+        <a href="{{ route('quartos.create') }}" 
+   style="background-color: #2563eb; color: white; padding: 0.5rem 1rem; border-radius: 0.375rem; font-weight: bold; display: inline-block;">
+        + Novo Quarto
+        </a>
+                <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg mt-4">
                 <div class="p-6 text-gray-900">
                     <table class="min-w-full table-auto">
                         <thead>
