@@ -32,7 +32,7 @@
                                 <td class="border px-4 py-2">{{ $cliente->numero }}</td>
                                 <td class="border px-4 py-2">{{ $cliente->descricao }}</td>
                                 <td class="border px-4 py-2">
-                                    <a href="{{ route('clientes.show', $cliente) }}" class="text-blue-500 hover:underline">Ver</a> |
+                                    
                                     <a href="{{ route('clientes.edit', $cliente) }}" class="text-yellow-500 hover:underline">Editar</a> |
                                     <form action="{{ route('clientes.destroy', $cliente) }}" method="POST" style="display:inline;">
                                         @csrf
