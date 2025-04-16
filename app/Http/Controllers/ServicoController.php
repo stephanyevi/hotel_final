@@ -41,12 +41,17 @@ class ServicoController extends Controller
 
     public function update(Request $request, Servico $servico)
     {
-        $request->validate([
+        $validated = $request->validate([
             'nome' => 'required|string|max:255',
-            'descricao' => 'nullable|string',
+            'descricao' => 'required|string',
         ]);
-
-        $servico->update($request->all());
+        
+        if (trim($validated['descricao']) === '') {
+            $validated['descricao'] = 'sem descrição';
+        }
+        
+        $servico->update($validated);
+        
         return redirect()->route('servicos.index')->with('success', 'Serviço atualizado com sucesso.');
     }
 

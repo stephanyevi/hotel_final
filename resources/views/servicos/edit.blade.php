@@ -13,14 +13,14 @@
 
                 <div class="mb-4">
                     <label class="block text-sm font-medium text-gray-700">Nome</label>
-                    <input type="text" name="nome" value="{{ $servico->nome }}"
+                    <input type="text" name="nome" value="{{ old('nome', $servico->nome) }}"
                            class="mt-1 block w-full border-gray-300 rounded-md" required>
                 </div>
 
                 <div class="mb-4">
                     <label class="block text-sm font-medium text-gray-700">Descrição</label>
-                    <textarea name="descricao" rows="4"
-                              class="mt-1 block w-full border-gray-300 rounded-md">{{ $servico->descricao }}</textarea>
+                    <textarea name="descricao" rows="4" required
+                              class="mt-1 block w-full border-gray-300 rounded-md">{{ old('descricao', $servico->descricao) }}</textarea>
                 </div>
 
                 <div class="flex gap-4">

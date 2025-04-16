@@ -44,8 +44,8 @@
                 </div>
 
                 <div class="mb-4">
-                    <label class="block text-sm font-medium text-gray-700">Descrição</label>
-                    <textarea name="descricao" rows="4" class="mt-1 block w-full border-gray-300 rounded-md">{{ $cliente->descricao }}</textarea>
+                    <label class="block text-sm font-medium text-gray-700">Forma de pagamento</label>
+                    <textarea name="descricao" rows="4" class="mt-1 block w-full border-gray-300 rounded-md" required>{{ $cliente->descricao }}</textarea>
                     @error('descricao')
                         <span class="text-red-500 text-sm">{{ $message }}</span>
                     @enderror
