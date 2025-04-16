@@ -38,8 +38,15 @@ class QuartoController extends Controller
 
     public function update(Request $request, Quarto $quarto)
     {
+        $request->validate([
+            'numero' => 'required',
+            'descricao' => 'required|string',
+            'preco' => 'required|numeric',
+        ]);
+
         $quarto->update($request->all());
-        return redirect()->route('quartos.index')->with('success', 'Quarto atualizado!');
+
+        return redirect()->route('quartos.index')->with('success', 'Quarto atualizado com sucesso.');
     }
 
     public function destroy(Quarto $quarto)

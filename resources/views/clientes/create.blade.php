@@ -35,11 +35,15 @@
                     <textarea name="descricao" rows="4" class="mt-1 block w-full border-gray-300 rounded-md"></textarea>
                 </div>
 
-                <div>
+                <div class="flex gap-4">
                     <button type="submit"
-                            class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded">
+                            style="background-color: #38a169; color: white; font-weight: bold; padding: 0.5rem 1rem; border-radius: 0.375rem;">
                         Salvar
                     </button>
+                    <a href="{{ route('clientes.index') }}"
+                       style="background-color: #e53e3e; color: white; font-weight: bold; padding: 0.5rem 1rem; border-radius: 0.375rem; text-decoration: none;">
+                        Cancelar
+                    </a>
                 </div>
             </form>
         </div>

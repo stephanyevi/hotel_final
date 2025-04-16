@@ -1,37 +1,41 @@
-<x-app-layout>
+<x-app-layout> 
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Novo Quarto') }}
+        <h2 class="text-xl font-semibold leading-tight text-gray-800">
+            Novo Quarto
         </h2>
     </x-slot>
 
-    <div class="py-12">
-        <div class="max-w-3xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white p-6 rounded shadow">
+    <div class="py-6">
+        <div class="max-w-xl mx-auto sm:px-6 lg:px-8 bg-white shadow-md rounded-md p-6">
             <form method="POST" action="{{ route('quartos.store') }}">
                 @csrf
 
                 <div class="mb-4">
-                    <label class="block text-gray-700">Número</label>
-                    <input type="text" name="numero" required class="w-full border rounded px-3 py-2" value="{{ old('numero') }}">
+                    <label class="block text-sm font-medium text-gray-700">Número</label>
+                    <input type="text" name="numero" value="{{ old('numero') }}" class="mt-1 block w-full border-gray-300 rounded-md" required>
                 </div>
 
                 <div class="mb-4">
-                    <label class="block text-gray-700">Descrição</label>
-                    <textarea name="descricao" required class="w-full border rounded px-3 py-2">{{ old('descricao') }}</textarea>
+                    <label class="block text-sm font-medium text-gray-700">Status</label>
+                    <textarea name="descricao" rows="3" class="mt-1 block w-full border-gray-300 rounded-md" required>{{ old('descricao') }}</textarea>
                 </div>
 
                 <div class="mb-4">
-                    <label class="block text-gray-700">Preço</label>
-                    <input type="number" step="0.01" name="preco" required class="w-full border rounded px-3 py-2" value="{{ old('preco') }}">
+                    <label class="block text-sm font-medium text-gray-700">Preço</label>
+                    <input type="number" step="0.01" name="preco" value="{{ old('preco') }}" class="mt-1 block w-full border-gray-300 rounded-md" required>
                 </div>
 
-                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                    Salvar
-                </button>
+                <div class="flex gap-4">
+                    <button type="submit"
+                            style="background-color: #38a169; color: white; font-weight: bold; padding: 0.5rem 1rem; border-radius: 0.375rem;">
+                        Salvar
+                    </button>
+                    <a href="{{ route('quartos.index') }}"
+                       style="background-color: #e53e3e; color: white; font-weight: bold; padding: 0.5rem 1rem; border-radius: 0.375rem; text-decoration: none;">
+                        Cancelar
+                    </a>
+                </div>
             </form>
-
-            </div>
         </div>
     </div>
 </x-app-layout>
