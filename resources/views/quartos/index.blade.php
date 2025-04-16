@@ -12,7 +12,7 @@
                 + Novo Quarto
             </a>
 
-            <div class="bg-white overflow-hidden shadow-xl rounded-lg mt-4 p-4 max-w-3xl mx-auto">
+            <div class="bg-white overflow-hidden shadow-xl rounded-lg mt-2 p-2 max-w-3xl mx-auto">
                 <div class="overflow-x-auto">
                     <table class="w-full divide-y divide-gray-200 table-auto">
                         <thead>

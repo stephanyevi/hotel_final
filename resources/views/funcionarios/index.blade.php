@@ -6,45 +6,52 @@
     </x-slot>
 
     <div class="py-4">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+        <div class="w-full px-4 sm:px-6 lg:px-8">
             <a href="{{ route('funcionarios.create') }}" 
-               class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                Novo Funcionário
+               style="background-color: #2563eb; color: white; padding: 0.5rem 1rem; border-radius: 0.375rem; font-weight: bold; display: inline-block;">
+                + Novo Funcionário
             </a>
 
-            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg mt-4 p-4">
-                <table class="min-w-full divide-y divide-gray-200">
-                    <thead>
-                        <tr>
-                            <th class="px-4 py-2">Nome</th>
-                            <th class="px-4 py-2">Telefone</th>
-                            <th class="px-4 py-2">Idade</th>
-                            <th class="px-4 py-2">Função</th>
-                            <th class="px-4 py-2">Ações</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($funcionarios as $funcionario)
+            <div class="bg-white overflow-hidden shadow-xl rounded-lg mt-2 p-2 max-w-4xl mx-auto">
+                <div class="overflow-x-auto">
+                    <table class="w-full divide-y divide-gray-200 table-auto">
+                        <thead>
                             <tr>
-                                <td class="border px-4 py-2">{{ $funcionario->nome }}</td>
-                                <td class="border px-4 py-2">{{ $funcionario->telefone }}</td>
-                                <td class="border px-4 py-2">{{ $funcionario->idade }}</td>
-                                <td class="border px-4 py-2">{{ $funcionario->funcao }}</td>
-                                <td class="border px-4 py-2">
-                                    <a href="{{ route('funcionarios.show', $funcionario) }}" class="text-blue-500 hover:underline">Ver</a> |
-                                    <a href="{{ route('funcionarios.edit', $funcionario) }}" class="text-yellow-500 hover:underline">Editar</a> |
-                                    <form action="{{ route('funcionarios.destroy', $funcionario) }}" method="POST" style="display:inline;">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" onclick="return confirm('Deseja excluir?')" class="text-red-500 hover:underline">
-                                            Excluir
-                                        </button>
-                                    </form>
-                                </td>
+                                <th class="px-2 py-2 whitespace-nowrap" style="width: 150px;">Nome</th>
+                                <th class="px-2 py-2 whitespace-nowrap" style="width: 130px;">Telefone</th>
+                                <th class="px-2 py-2 whitespace-nowrap" style="width: 80px;">Idade</th>
+                                <th class="px-2 py-2 whitespace-nowrap" style="width: 150px;">Função</th>
+                                <th class="px-2 py-2 whitespace-nowrap" style="width: 130px;">Ações</th>
                             </tr>
-                        @endforeach
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                            @foreach ($funcionarios as $funcionario)
+                                <tr>
+                                    <td class="border px-2 py-2 whitespace-nowrap">{{ $funcionario->nome }}</td>
+                                    <td class="border px-2 py-2 whitespace-nowrap">{{ $funcionario->telefone }}</td>
+                                    <td class="border px-2 py-2 whitespace-nowrap">{{ $funcionario->idade }}</td>
+                                    <td class="border px-2 py-2 whitespace-nowrap">{{ $funcionario->funcao }}</td>
+                                    <td class="border px-2 py-2 whitespace-nowrap">
+                                        <div style="display: flex; gap: 4px;">
+                                            <a href="{{ route('funcionarios.edit', $funcionario) }}"
+                                               style="background-color: #facc15; color: white; font-weight: bold; padding: 2px 8px; border-radius: 4px; font-size: 0.875rem; text-decoration: none;">
+                                                Editar
+                                            </a>
+                                            <form action="{{ route('funcionarios.destroy', $funcionario) }}" method="POST" onsubmit="return confirm('Deseja excluir?')">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit"
+                                                        style="background-color: #ef4444; color: white; font-weight: bold; padding: 2px 8px; border-radius: 4px; font-size: 0.875rem; border: none;">
+                                                    Apagar
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>

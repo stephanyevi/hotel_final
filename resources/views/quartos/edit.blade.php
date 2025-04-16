@@ -18,7 +18,7 @@
                     </div>
 
                     <div class="mb-4">
-                        <label class="block text-gray-700">Descrição</label>
+                        <label class="block text-gray-700">Status</label>
                         <textarea name="descricao" class="w-full border rounded px-3 py-2">{{ old('descricao', $quarto->descricao) }}</textarea>
                     </div>
 
