@@ -32,9 +32,9 @@
                         {{ __('Funcionários') }}
                     </x-nav-link>
 
-                    <x-nav-link :href="route('ferramentas-manutencao.index')" :active="request()->routeIs('ferramentas-manutencao.*')">
+                   <!-- <x-nav-link :href="route('ferramentas-manutencao.index')" :active="request()->routeIs('ferramentas-manutencao.*')">
                         {{ __('Ferramentas') }}
-                    </x-nav-link>
+                    </x-nav-link> -->
 
 
 

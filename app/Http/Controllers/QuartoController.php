@@ -20,7 +20,14 @@ class QuartoController extends Controller
 
     public function store(Request $request)
     {
-        Quarto::create($request->all());
+        $request->validate([
+            'numero' => 'required|string',
+            'descricao' => 'required|string',
+            'preco' => 'required|numeric|min:0',
+        ]);
+
+        Quarto::create($request->only('numero', 'descricao', 'preco'));
+
         return redirect()->route('quartos.index')->with('success', 'Quarto criado com sucesso!');
     }
 
