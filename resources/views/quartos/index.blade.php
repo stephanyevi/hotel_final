@@ -6,39 +6,44 @@
     </x-slot>
 
     <div class="py-4">
-        <div class="w-full px-4 sm:px-6 lg:px-8"> {{-- Removido max-w-7xl --}}
-            <a href="{{ route('quartos.create') }}"
-               class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded inline-block">
+        <div class="w-full px-4 sm:px-6 lg:px-8">
+            <a href="{{ route('quartos.create') }}" 
+               style="background-color: #2563eb; color: white; padding: 0.5rem 1rem; border-radius: 0.375rem; font-weight: bold; display: inline-block;">
                 + Novo Quarto
             </a>
 
-            {{-- Defini o bloco com largura reduzida, agora max-w-3xl --}}
             <div class="bg-white overflow-hidden shadow-xl rounded-lg mt-4 p-4 max-w-3xl mx-auto">
-                <div class="overflow-x-auto"> {{-- Adiciona rolagem horizontal se necessário --}}
+                <div class="overflow-x-auto">
                     <table class="w-full divide-y divide-gray-200 table-auto">
                         <thead>
                             <tr>
-                                <th class="px-4 py-2">Número</th>
-                                <th class="px-4 py-2">Status</th>
-                                <th class="px-4 py-2">Preço</th>
-                                <th class="px-4 py-2">Ações</th>
+                                <th class="px-2 py-2 whitespace-nowrap" style="width: 80px;">Número</th>
+                                <th class="px-2 py-2 whitespace-nowrap" style="width: 150px;">Status</th>
+                                <th class="px-2 py-2 whitespace-nowrap" style="width: 100px;">Preço</th>
+                                <th class="px-2 py-2 whitespace-nowrap" style="width: 130px;">Ações</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($quartos as $quarto)
                                 <tr>
-                                    <td class="border px-4 py-2">{{ $quarto->numero }}</td>
-                                    <td class="border px-4 py-2">{{ $quarto->descricao }}</td>
-                                    <td class="border px-4 py-2">R$ {{ number_format($quarto->preco, 2, ',', '.') }}</td>
-                                    <td class="border px-4 py-2">
-                                        <a href="{{ route('quartos.edit', $quarto) }}" class="text-yellow-500 hover:underline">Editar</a> |
-                                        <form action="{{ route('quartos.destroy', $quarto) }}" method="POST" style="display:inline;">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" onclick="return confirm('Tem certeza?')" class="text-red-500 hover:underline">
-                                                Apagar
-                                            </button>
-                                        </form>
+                                    <td class="border px-2 py-2 whitespace-nowrap">{{ $quarto->numero }}</td>
+                                    <td class="border px-2 py-2 whitespace-nowrap">{{ $quarto->descricao }}</td>
+                                    <td class="border px-2 py-2 whitespace-nowrap">R$ {{ number_format($quarto->preco, 2, ',', '.') }}</td>
+                                    <td class="border px-2 py-2 whitespace-nowrap">
+                                        <div style="display: flex; gap: 4px;">
+                                            <a href="{{ route('quartos.edit', $quarto) }}"
+                                               style="background-color: #facc15; color: white; font-weight: bold; padding: 2px 8px; border-radius: 4px; font-size: 0.875rem; text-decoration: none;">
+                                                Editar
+                                            </a>
+                                            <form action="{{ route('quartos.destroy', $quarto) }}" method="POST" onsubmit="return confirm('Tem certeza?')">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit"
+                                                        style="background-color: #ef4444; color: white; font-weight: bold; padding: 2px 8px; border-radius: 4px; font-size: 0.875rem; border: none;">
+                                                    Apagar
+                                                </button>
+                                            </form>
+                                        </div>
                                     </td>
                                 </tr>
                             @endforeach
