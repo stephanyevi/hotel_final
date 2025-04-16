@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Funcionario;
 use Illuminate\Http\Request;
 
-use App\Http\Controllers\Controller; // ✅ IMPORTANTE!
+use App\Http\Controllers\Controller; 
 
 class FuncionarioController extends Controller
 {

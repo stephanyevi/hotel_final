@@ -20,16 +20,20 @@ class ClienteController extends Controller
 
     public function store(Request $request)
     {
-        Cliente::create($request->validate([
-            'nome' => 'required',
+        $validated = $request->validate([
+            'nome' => 'required|string|max:255',
             'idade' => 'required|integer',
-            'email' => 'required|email|unique:clientes',
-            'numero' => 'required',
-            'descricao' => 'nullable',
-        ]));
+            'email' => 'required|email|unique:clientes,email', 
+            'numero' => 'required|string|max:255',
+            'descricao' => 'nullable|string',
+        ]);
+
+        Cliente::create($validated);
 
         return redirect()->route('clientes.index')->with('success', 'Cliente criado com sucesso!');
     }
+
+
 
     public function show(Cliente $cliente)
     {
@@ -43,16 +47,20 @@ class ClienteController extends Controller
 
     public function update(Request $request, Cliente $cliente)
     {
-        $cliente->update($request->validate([
-            'nome' => 'required',
+        $validated = $request->validate([
+            'nome' => 'required|string|max:255',
             'idade' => 'required|integer',
-            'email' => 'required|email|unique:clientes,email,' . $cliente->id,
-            'numero' => 'required',
-            'descricao' => 'nullable',
-        ]));
+            'email' => 'required|email|unique:clientes,email,' . $cliente->id, 
+            'numero' => 'required|string|max:255',
+            'descricao' => 'nullable|string',
+        ]);
+
+        $cliente->update($validated);
 
         return redirect()->route('clientes.index')->with('success', 'Cliente atualizado com sucesso!');
     }
+
+
 
     public function destroy(Cliente $cliente)
     {
